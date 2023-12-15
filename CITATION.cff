@@ -1,0 +1,50 @@
+# YAML 1.2
+---
+authors: 
+  - family-names: Picinin
+    given-names: Felipe 
+  - family-names: Ferreira
+    given-names: Gabriel
+  - family-names: Garcia
+    given-names: Lucas
+  - family-names: Pires
+    given-names: Maisa 
+  - family-names: Vieira
+    given-names: Miguel
+    
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: De Paula
+    given-names: Hugo Bastos
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Veloso
+    given-names: Eveline Alonso
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Baroni de Carvalho
+    given-names: Juliana Amaral 
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Seufitelli
+    given-names: Danilo Boechat
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Silva
+    given-names: Luiz Henrique da Costa
+
+cff-version: "1.1.0"
+keywords: 
+  - "Modelagem de Processos de Negócios"
+  - "Palavra chave 2"
+  - "Palavra chave 3"
+message: |
+    "If you use this software, please cite it using these metadata.
+    Se você utilizar este software, por favor cite-o utilizando estes metadados."
+repository-code: "https://github.com//ICEI-PUC-Minas-PPLES-TI/plf-es-2023-2-ti2-1372100-vanbora"
+title: "VanBora"
+abstract: |
+    "
+    A VanBora é um software que visa baratear e facilitar o transporte para aqueles que não possuem meio de transporte prórpio. Por meio de vans coletivas, a VanBora oferece uma plataforma que forma grupos de usuários com locais de partida e/ou locais de destino próximos de outros, para que assim um número maior de pessoas possam utilizar de um transporte seguro sem pagar muito. Oferecemos motoristas habilitados e de confiança, álem de uma interfacea simples e intuitiva para possibilitar que qualquer um possa ser um passageiro VanBora.
+    "
+...

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Solicitação de Viagem</title>
+</head>
+
+<body class="body-solicitacao">
+
+    <div class="solicitacao">
+        <div class="forms-solicitacao">
+            <h1>Solicitar uma Viagem</h1>
+            <form class="form-solicitacao" id="viagemForm">
+                <div class="info-container">
+                    <div class="form-group-solicitacao">
+                        <label class="label-solicitacao">Local de Partida</label>
+                        <input type="text" id="localSaida" required>
+                    </div>
+                    <div class="form-group-solicitacao">
+                        <label class="label-solicitacao">Destino</label>
+                        <input type="text" id="destinoFinal" required>
+                    </div>
+                    <div class="form-group-solicitacao">
+                        <label class="label-solicitacao">Quantidade de Passageiros</label>
+                        <input type="number" id="quantidadeDePassageiros" required>
+                    </div>
+                    <div class="form-group-solicitacao">
+                        <label class="label-solicitacao">Data da Viagem</label>
+                        <input type="text" id="dataViagem" required>
+                    </div>
+                    <div class="form-group-solicitacao">
+                        <label class="label-solicitacao">Tipo de Viagem</label>
+                        <select id="tipoViagem">
+                            <option value="null">--null--</option>
+                            <option value="compartilhada">Compartilhada</option>
+                            <option value="privada">Privada</option>
+                        </select>
+                    </div>
+                </div>
+                <a class="button-solicitar" >Solicitar Viagem</a>
+                <a class="button-solicitar button-ver-propostas" href="AceitarPropostaViagem.html" style="display: none;">Ver proposta</a>
+
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+<script>
+    document.querySelector('.button-solicitar').addEventListener('click', async (event) => {
+        event.preventDefault();
+
+        const localSaida = document.querySelector('#localSaida').value;
+        const destinoFinal = document.querySelector('#destinoFinal').value;
+        const quantidadeDePassageiros = document.querySelector('#quantidadeDePassageiros').value;
+        const dataViagem = document.querySelector('#dataViagem').value;
+        const tipoViagem = document.querySelector('#tipoViagem').value;
+
+        const data = {
+            localSaida,
+            destinoFinal,
+            quantidadeDePassageiros,
+            dataViagem,
+            tipoViagem
+        };
+
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        const requestOptions = {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(data),
+        };
+
+        console.log(data);
+
+        try {
+            const request = await fetch('https://vanborapp.azurewebsites.net/viagem', requestOptions);
+
+            if (!request.ok) {
+                throw new Error(`HTTP error! Status: ${request.status}`);
+            }
+
+            const responseText = await request.text();
+            const response = responseText ? JSON.parse(responseText) : null;
+            console.log(response);
+
+            // Exibir um alerta após o envio bem-sucedido
+            alert('Estamos procurando um motorista! Clique em "Ver proposta" para continuar.');
+
+            // Mostrar o botão "Ver propostas"
+            document.querySelector('.button-ver-propostas').style.display = 'inline';
+
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    });
+</script>

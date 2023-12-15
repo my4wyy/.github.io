@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Aceitar viagem</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="scriptaceitarviagem.js"></script>
+</head>
+
+<body class="body-aceitarProposta">
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">VanBora</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav mx-auto">
+                    <a class="nav-link" href="paginainicial.html">Home</a>
+                    <a class="nav-link" href="paginaInicialMotorista.html">Dirigir</a>
+                    <a class="nav-link" href="solicitacao.html">Viajar</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="quadrado-azul-aceitar">
+        <div class="aceitarapropsta">
+            <h2 class="nomeMotorista"></h2>
+            <p class="carroPlaca"></p>
+            <p class="avaliacoesCorrida">Ultima avaliação recebida:
+            </p>
+            <div class="acao">
+                <button class="aceitar" onclick="window.location.href='Viagem.html'">Aceitar</button>
+                <button class="recusar" onclick="window.location.href='paginicial.html'">Recusar</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
+<script>
+    fetch('https://vanborapp.azurewebsites.net/motorista/40742812014')
+        .then(res => {
+            return res.json()
+
+        })
+        .then(data => {
+            console.log(data)
+            const divNomeMotorista = `<div>${data.nome}</div>`
+            document.querySelector('.nomeMotorista').insertAdjacentHTML('beforeend', divNomeMotorista)
+            const divCarroPlaca = `<div>${data.carroPlaca}</div>`
+            document.querySelector('.carroPlaca').insertAdjacentHTML('beforeend', divCarroPlaca)
+
+            const avaliacoesCorrida = data.avaliacoesCorrida;
+
+            const htmlAvaliacoes = avaliacoesCorrida.map(avaliacao => `
+         <div>
+             <p>Comentário: ${avaliacao.comentario}</p>
+                <p>Estrelas: ${avaliacao.estrelas}</p>
+         </div>
+        `).join('');
+
+            document.querySelector('.avaliacoesCorrida').insertAdjacentHTML('beforeend', htmlAvaliacoes);
+
+        })
+</script>

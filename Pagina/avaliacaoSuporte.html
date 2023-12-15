@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Avaliação da experiência</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body class="body-avaliacao">
+
+    <table class="blue-table">
+        <tr>
+            <td>
+                <h2>Avalie a experiência: </h2>
+                <div class="star-rating">
+                    <input type="checkbox" class="star-input" id="star1" name="rating" value="1">
+                    <label for="star1">★</label>
+                    <input type="checkbox" class="star-input" id="star2" name="rating" value="2">
+                    <label for="star2">★</label>
+                    <input type="checkbox" class="star-input" id="star3" name="rating" value="3">
+                    <label for="star3">★</label>
+                    <input type="checkbox" class="star-input" id="star4" name="rating" value="4">
+                    <label for="star4">★</label>
+                    <input type="checkbox" class="star-input" id="star5" name="rating" value="5">
+                    <label for="star5">★</label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form id="myForm" action="processar_formulario.php" method="post">
+                    <label for="texto" class="viagemID">ID da viagem:</label>
+                    <label for="texto">Comentário:</label><br>
+                    <textarea id="comentario" name="comentario" rows="4" cols="50"></textarea><br><br>
+                    <input type="submit" class="enviar" value="Enviar">
+
+                </form>
+            </td>
+        </tr>
+
+    </table>
+
+    <script>
+        let valorEstrela = 0
+        let star1 = document.getElementById('star1')
+        let star2 = document.getElementById('star2')
+        let star3 = document.getElementById('star3')
+        let star4 = document.getElementById('star4')
+        let star5 = document.getElementById('star5')
+
+        document.querySelector('#star1').addEventListener('click', async (event) => {
+            valorEstrela = 1
+            star1.checked = true
+            star2.checked = false
+            star3.checked = false
+            star4.checked = false
+            star5.checked = false
+        })
+        document.querySelector('#star2').addEventListener('click', async (event) => {
+            valorEstrela = 2
+            star1.checked = true
+            star2.checked = true
+            star3.checked = false
+            star4.checked = false
+            star5.checked = false
+        })
+        document.querySelector('#star3').addEventListener('click', async (event) => {
+            valorEstrela = 3
+            star1.checked = true
+            star2.checked = true
+            star3.checked = true
+            star4.checked = false
+            star5.checked = false
+        })
+        document.querySelector('#star4').addEventListener('click', async (event) => {
+            valorEstrela = 4
+            star1.checked = true
+            star2.checked = true
+            star3.checked = true
+            star4.checked = true
+            star5.checked = false
+        })
+        document.querySelector('#star5').addEventListener('click', async (event) => {
+            valorEstrela = 5
+            star1.checked = true
+            star2.checked = true
+            star3.checked = true
+            star4.checked = true
+            star5.checked = true
+        })
+
+        document.querySelector('.enviar').addEventListener('click', async (event) => {
+            event.preventDefault();
+
+            const estrelasSelecionadas = document.querySelector('input[name="rating"]:checked');
+            const classificacao = estrelasSelecionadas ? estrelasSelecionadas.value : null;
+
+            const comentario = document.querySelector('#comentario').value;
+            const data = {
+                comentario,
+                estrelas: valorEstrela
+            };
+
+            const headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+            const requestOptions = {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify(data),
+            };
+
+            console.log(data);
+
+            try {
+                const request = await fetch();
+
+                if (!request.ok) {
+                    throw new Error(`HTTP error! Status: ${request.status}`);
+                }
+
+                const responseText = await request.text();
+                const response = responseText ? JSON.parse(responseText) : null;
+                console.log("funcionoooou", response);
+
+                
+                alert('Avaliação enviada!');
+
+                
+                window.location.href = 'paginicial.html';
+
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+
+        fetch('https://vanborapp.azurewebsites.net/viagem/1')
+            .then(res => {
+                return res.json()
+
+            })
+            .then(data => {
+                console.log(data)
+                const viagemID = `<div>${data.viagemID}</div>`
+                document.querySelector('.viagemID').insertAdjacentHTML('beforeend', viagemID)
+
+            })
+    </script>
+
+
+</body>
+
+</html>

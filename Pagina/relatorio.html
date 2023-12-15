@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="relatorio.js"></script>
+    <nav class="navbar navbar-expand-lg bg-light" style="background-color: transparent !important;">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">VanBora</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav mx-auto">
+                    <a class="nav-link" href="paginaInicialMotorista.html">Dirigir</a>
+                    <a class="nav-link" href="paginicial.html">Viajar</a>
+                    <a class="nav-link" href="relatorio.html">Indicadores de desempenho</a>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+    <style>
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 200px 0;
+            height: 500px;
+            flex-direction: column;
+        }
+
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .chart-title {
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .chart-description {
+            font-style: italic;
+        }
+    </style>
+
+</head>
+
+<body>
+    <p id="texto"></p>
+
+
+    <div class="chart-container">
+        <h2 class="chart-title">Percentual de usuários que solicitam viagens compartilhadas ou privadas</h2>
+        <canvas id="grafico1"></canvas>
+        <p class="chart-description">É possível perceber, que dentre as duas opções, a que mais é escolhida é a privada.</p>
+    </div>
+
+    <div class="chart-container">
+        <h2 class="chart-title">Taxa de satisfação do passageiro com a viagem</h2>
+        <canvas id="grafico2"></canvas>
+        <p class="chart-description">Com este gráfico, concluímos que mais de 80% dos clientes que avaliaram deram mais de 3 estrelas, mostrando ser um serviço de qualidade.</p>
+    </div>
+
+    <div class="chart-container">
+        <h2 class="chart-title">Média de passageiros por viagem</h2>
+        <canvas id="grafico3"></canvas>
+        <p class="chart-description">Com este gráfico, é notável que de 4 a 6 pessoas é a quantidade de pessoas que mais participam da mesma viagem, mostrando que a utilização de vans seria muito utilizado por nossa empresa.</p>
+    </div>
+
+    <div class="chart-container">
+        <h2 class="chart-title">Índice de resolução de problemas do suporte</h2>
+        <canvas id="grafico4"></canvas>
+        <p class="chart-description">Nesse gráfico, é possivel analisar a quantidade de tickets de suporte já solucionados. </p>
+    </div>
+
+    <div class="chart-container">
+        <h2 class="chart-title">Satisfação do usuário com o suporte</h2>
+        <canvas id="grafico5"></canvas>
+        <p class="chart-description">Com este gráfico, podemos ver o feedback do usuário sobre sua satisfação com nosso atendimento. </p>
+    </div>
+
+
+    <script>
+        const ctx = document.getElementById('grafico1');
+
+        let labelsX = ["Privada", "Compartilhada"]
+        let valores = [0, 0]
+
+
+        let grafico1 = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: labelsX,
+                datasets: [{
+                    label: '% de Votos',
+                    data: valores,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const cty = document.getElementById('grafico2');
+
+        let labelsY = ["1 estrela", "2 estrelas", "3 estrelas", "4 estrelas", "5 estrelas"]
+        let valoresY = [0, 0, 0, 0, 0]
+
+        let grafico2 = new Chart(cty, {
+            type: 'pie',
+            data: {
+                labels: labelsY,
+                datasets: [{
+                    label: '# of Votes',
+                    data: valoresY,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const ctz = document.getElementById('grafico3');
+
+        let labelsZ = ["Menos de 4 passageiros", "Entre 4 e 6 passageiros", "Entre 6 e 10 passageiros", "Mais de 10 passageiros"]
+        let valoresZ = [0, 0, 0, 0]
+
+        let grafico3 = new Chart(ctz, {
+            type: 'bar',
+            data: {
+                labels: labelsZ,
+                datasets: [{
+                    label: '% de Votos',
+                    data: valoresZ,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const ct4 = document.getElementById('grafico4');
+
+        let labels4 = ["Resolvidos","Não resolvidos"]
+        let valores4 = [0, 0, 0]
+
+        let grafico4 = new Chart(ct4, {
+            type: 'doughnut',
+            data: {
+                labels: labels4,
+                datasets: [{
+                    label: '# of Votes',
+                    data: valores4,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const ct5 = document.getElementById('grafico5');
+
+        let labels5 = ["1 estrela", "2 estrelas","3 estrelas","4 estrelas","5 estrelas"]
+        let valores5 = [0, 0, 0, 0, 0]
+
+        let grafico5 = new Chart(ct5, {
+            type: 'pie',
+            data: {
+                labels: labels5,
+                datasets: [{
+                    label: '# of Votes',
+                    data: valores5,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+
+    </script>
+</body>
+</html>
+<style>
+    body {
+        background-image: url('../assets/fundo.jpg');
+        background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+            margin: 0;
+    }
+</style>

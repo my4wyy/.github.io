@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Viagem</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<style>
+    .bluebackground{
+    background-color: #5ab7ff;
+}
+</style>
+
+<body class="bluebackground">
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">VanBora</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav mx-auto">
+                    <a class="nav-link" href="paginainical.html">Home</a>
+                    <a class="nav-link" href="paginaInicialMotorista">Dirigir</a>
+                    <a class="nav-link" href="Solicitacao.html">Viajar</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar"></div>
+    </div>
+
+    <div class="card text-center mx-auto my-5" style="width: 1000px;">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                    <a id="percurso-tab" class="nav-link active" aria-current="true" href="#">Percurso</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="envioTIcket.html">Ajuda</a>
+                </li>
+            </ul>
+        </div>
+        <img src="../Assets/mapa.jpg" class="mapa-viagem">
+        <div class="card-body">
+            <h5 class="card-title">VanBora para seu destino!</h5>
+            <p class="card-text">Acompanhe a localização da van em tempo real</p>
+            <a href="avaliacao.html" class="btn btn-primary" id="encerrarBtn">Encerrar</a>
+           
+
+        </div>
+    </div>
+
+    <div class="card text-center mx-auto my-5" style="width: 1000px;">
+        <div id="elemento-substituto">
+            <ul class="list-group">
+                <li class="list-group-item">
+                   
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="card text-center mx-auto my-5" style="width: 1000px;">
+        <div id="pagamento-content" style="display: none;">
+          
+        </div>
+    </div>
+
+</body>
+
+</html>
+

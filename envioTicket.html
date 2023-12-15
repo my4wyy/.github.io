@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Envio de ticket</title>
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+</head>
+
+<style>
+    button {
+        background: #207cdf;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 1vh;
+        text-decoration: none;
+        display: inline-block;
+    }
+</style>
+<body class="body-avaliacao">
+
+    <table class="blue-table">
+        <tr>
+            <td>
+                <h2>Informe sua mensagem para o suporte:</h2>
+                <form id="myForm">
+                    <label for="texto">Mensagem:</label><br>
+                    <textarea id="texto" name="texto" rows="4" cols="50"></textarea><br><br>
+                    <button type="button" onclick="enviarFormulario()">Enviar</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+    <script src="java.js"></script> 
+    <script>
+        function enviarFormulario() {
+            window.location.href = 'paginicial.html';
+        }
+    </script>
+</body>
+</html>
+

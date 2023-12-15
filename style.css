@@ -1,0 +1,421 @@
+.bluebackground{
+    background-color: #5ab7ff;
+}
+.star-rating {
+    display: flex;
+    justify-content: center;
+}
+
+.stars {
+    display: flex;
+    align-items: center;
+}
+
+.star-input {
+    display: none;
+}
+
+.star-label {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.star-input:checked + label {
+    color: gold;
+}
+
+
+.progress-bar{
+    width: 20%;
+}
+.progress{
+   margin: 50px;
+}
+
+.mapa-viagem{
+    margin: 20px;
+}
+
+/*----------------------------------css pagina inicial -----------------------------*/
+.quadrado-azul-viajar {
+    background-color: #3498db; 
+            border-radius: 15px; 
+            padding: 20px; 
+            text-align: center; 
+            margin: 20px; 
+            
+}
+.botaoViajar:hover,
+        .tipos-de-servico .servico:hover {
+            transform: scale(1.1); /* Aumenta a escala (zoom) quando o mouse está sobre o quadrado */
+        }
+
+.tipos-de-servico {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px auto;
+    width: 800px; 
+    
+}
+
+.servico {
+    width: 30%; 
+    height: 300px;
+    background-color: #9fffff; 
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.quadrado-azul-viajar img {
+    width: 500px; 
+    height: auto; 
+    display: block; 
+    margin: 0 auto 10px; 
+}
+
+.servico button {
+    background-color: black;
+    color: #fff;
+    border: none;
+    padding: 10px 4px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%; 
+    margin-bottom: 10px;
+}
+
+.quadrado-azul-viajar button {
+    background-color: black;
+    color: #fff;
+    border: none;
+    padding: 10px 4px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+/*------------------------ css solicitacao de viagem --------------------------------*/
+
+.body-solicitacao {
+    font-family: Arial;
+    background-color: #5ab7ff; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.solicitacao {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.forms-solicitacao {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.form-solicitacao {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group-solicitacao {
+    margin: 10px 0;
+}
+
+.label-solicitacao {
+    font-weight: bold;
+}
+
+input, select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    width: 100%;
+    background-color: #dbdbdb;
+}
+
+.button-solicitar {
+    background: #207cdf;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 1vh;;
+}
+
+.button-solicitar:hover {
+    background: rgb(0, 94, 202);
+}
+
+/*-------------------------CSS ACEITAR PROPOSTA-----------------------------------------*/
+.quadrado-azul-aceitar{
+    height: 500px;
+    background-color: #5ab7ff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: center; 
+    padding: 10px;
+    margin-top: 50px;
+}
+
+.quadrado-azul-aceitar button {
+    background-color: #207cdf;
+    color: #fff;
+    border: none;
+    padding: 10px 4px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+.body-aceitarProposta{
+    background-color: #5ab7ff; 
+}
+
+.aceitarapropsta{
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.quadrado-azul-aceitar button:hover {
+    background: rgb(0, 94, 202);
+    color: #fff; 
+}
+
+
+/*-------------------------CSS ACEITAR Passageiros-----------------------------------------*/
+.aceitarpassageiros{
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.aceitar,
+.recusar {
+    background: #207cdf;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 1vh;
+    text-decoration: none; 
+    display: inline-block; 
+}
+
+.aceitar:hover,
+.recusar:hover {
+    background: #105e8e;
+}
+
+/*-------------------------CSS confirmar Viagem-----------------------------------------*/
+.quadrado-azul-aceitar button:hover {
+    background: rgb(0, 94, 202);
+    color: #fff; 
+}
+
+.Confirmar,
+.Recusar {
+    background: #207cdf;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 1vh;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.Confirmar:hover,
+.Recusar:hover {
+    background: #105e8e;
+}
+
+/*----------------css avaliação-------------------*/
+
+.body-avaliacao {
+    height: 500px;
+    background-color: #5ab7ff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: center; 
+    padding: 10px;
+}
+
+h2 {
+    font-family: Arial;
+    font-weight: 700;
+    font-style: italic;
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+table.blue-table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    width: 70%;
+    margin: 20px auto;
+    background-color: white;
+}
+
+form {
+    padding: 20px;
+}
+
+label {
+    font-weight: 700;
+    color: #333;
+}
+
+textarea {
+    width: calc(100% - 12px);
+    padding: 5px;
+    margin: 5px 0;
+}
+
+input[type="submit"] {
+    background-color: #207cdf;
+    color: #fff;
+    border: none;
+    padding: 10px 4px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+input[type="submit"]:hover {
+    background: rgb(0, 94, 202);
+    color: #fff; 
+}
+
+.star-rating {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+.star-input {
+    display: none;
+}
+
+.star-input:checked + label {
+    color: #ffcc00;
+}
+
+label.star-label {
+    display: inline-block;
+    cursor: pointer;
+    color: #ddd;
+}
+
+/*-------------------------------css analisar feedback--------------------------*/
+.body-analisar {
+    font-family: Arial;
+    background-color: #5ab7ff; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.body-analisar h1{
+padding: 50px;
+}
+
+.container-analisar {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.analisar {
+    background: #207cdf;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    max-width: 300px;
+}
+
+
+/*------------------------css cadastrar---------------*/
+
+.body-cadastro {
+    font-family: Arial;
+    background-color: #5ab7ff; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.cadastro {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.forms-cadastro{
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+.form-cadastro {
+    display: flex;
+    flex-direction: column;
+}
+.form-group-cadastro {
+    margin: 10px 0;
+}
+
+.label-cadastro {
+    font-weight: bold;
+}
+
+
+.button-cadastrar {
+    background-color: #207cdf;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-cadastrar:hover {
+    background: rgb(0, 94, 202);
+}
